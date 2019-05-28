@@ -47,4 +47,4 @@ var lengthOfLongestSubstring = function(s) {
   return longestSub;
 };
 
-//faster than 29% of submissions
+//faster than 29% of submissions in JS
