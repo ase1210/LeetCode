@@ -32,19 +32,35 @@ Submissions
 609,337
 */
 
-var uniquePaths = function(m, n) {
-  const table = new Array(m).fill(new Array(n));
+// var uniquePaths = function(m, n) {
+//   const table = new Array(m).fill(new Array(n));
 
-  for (let i = 0; i < m; i++) {
-    for (let j = 0; j < n; j++) {
+//   for (let i = 0; i < m; i++) {
+//     for (let j = 0; j < n; j++) {
+//       if (i === 0) {
+//         table[i][j] = 1;
+//       } else if (j === 0) {
+//         table[i][j] = 1;
+//       } else {
+//         table[i][j] = table[i - 1][j] + table[i][j - 1];
+//       }
+//     }
+//   }
+//   return table[m - 1][n - 1];
+// };
+
+var uniquePaths = function(m, n) {
+  const table = new Array(m).fill(1);
+  let j = 1;
+  while (j < n) {
+    for (let i = 0; i < m; i++) {
       if (i === 0) {
-        table[i][j] = 1;
-      } else if (j === 0) {
-        table[i][j] = 1;
+        table[i] = 1;
       } else {
-        table[i][j] = table[i - 1][j] + table[i][j - 1];
+        table[i] = table[i] + table[i - 1];
       }
     }
+    j++;
   }
-  return table[m - 1][n - 1];
+  return table[table.length - 1];
 };
